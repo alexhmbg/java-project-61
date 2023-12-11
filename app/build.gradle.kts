@@ -7,6 +7,10 @@ application {
     mainClass = "hexlet.code.App"
 }
 
+tasks.compileJava {
+    options.release = 20
+}
+
 group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 
