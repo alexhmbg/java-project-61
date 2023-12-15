@@ -1,20 +1,21 @@
-package hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.Engine;
 
 import java.util.Scanner;
 
 public class GameEven {
 	public static void start() {
-		String playerName = GameGreet.start();
+		GameGreet.start();
 
 		System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 		int questionIndex = 0;
 		while (questionIndex < 3) {
-			int Min = 1;
-			int Max = 100;
-			int randomNum = Min + (int)(Math.random() * ((Max - Min) + 1));
-			System.out.println("Question: " + randomNum);
+			int randomNum = Engine.randomNumber();
 			String correctAnswer = randomNum % 2 == 0 ? "yes" : "no";
 
+			// >> to Engine correctAnswer + playerAnswer
+			System.out.println("Question: " + randomNum);
 			System.out.print("Your answer: ");
 			Scanner answerScanner = new Scanner(System.in);
 			String playerAnswer = answerScanner.nextLine();
@@ -24,7 +25,7 @@ public class GameEven {
 			if (bothCorrect) {
 				System.out.println("Correct!");
 				if (questionIndex == 2) {
-					System.out.println("Congratulations, " + playerName + "!");
+					System.out.println("Congratulations, " + GameGreet.playerName + "!");
 				}
 				questionIndex++;
 			} else {
