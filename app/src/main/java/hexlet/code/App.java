@@ -16,6 +16,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         menu(scanner.nextInt());
     }
+
     public static void menu(int choice) {
         switch (choice) {
             case 0:
