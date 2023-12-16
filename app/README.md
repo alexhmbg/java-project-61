@@ -3,7 +3,8 @@ java-package
 [![Maintainability](https://api.codeclimate.com/v1/badges/be8ad82c04cab496efcd/maintainability)](https://codeclimate.com/github/alexhmbg/java-project-61/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/be8ad82c04cab496efcd/test_coverage)](https://codeclimate.com/github/alexhmbg/java-project-61/test_coverage)
 
-https://asciinema.org/a/sQDHrZnoCt52WBcFkX7Q56eTl
+First record (one game): https://asciinema.org/a/sQDHrZnoCt52WBcFkX7Q56eTl
+Second record (two games): https://asciinema.org/a/1QcyB4HdmjrbcWlH8PD3t4bcW
 
 ## Start
 
