@@ -22,7 +22,7 @@ public class App {
             case 0:
                 break;
             case 1:
-                GameGreet.start();
+                Greet.start();
                 break;
             case 2:
                 GameEven.start();
