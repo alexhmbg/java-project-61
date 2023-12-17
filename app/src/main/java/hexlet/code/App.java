@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
-        String[] choices = {"1 - Greet", "2 - Even", "3 - Calc", "0 - Exit"};
+        String[] choices = {"1 - Greet", "2 - Even", "3 - Calc", "4 - GCD", "0 - Exit"};
 
         for (var choice : choices) {
                 System.out.println(choice);
@@ -29,6 +29,9 @@ public class App {
                 break;
             case 3:
                 GameCalc.start();
+                break;
+            case 4:
+                GameGCD.start();
                 break;
         }
     }
