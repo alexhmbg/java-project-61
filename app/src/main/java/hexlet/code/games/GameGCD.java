@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class GCD {
+public class GameGCD {
 	public static void start() {
 		var description = "Find the greatest common divisor of given numbers.";
 		int gameRounds = 3;
