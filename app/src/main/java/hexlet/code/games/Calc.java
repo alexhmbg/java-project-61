@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-public class GameCalc {
+public class Calc {
 	public static String description = "What is the result of the expression?";
 	public static int rounds = Engine.gameRounds;
 	public static String[] questions = new String[rounds];
