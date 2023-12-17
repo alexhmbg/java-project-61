@@ -47,6 +47,24 @@ public class Engine {
 		};
 	}
 
+	public static int GCD(int randomNumber1, int randomNumber2) {
+		var num1 = randomNumber1;
+		var num2 = randomNumber2;
+		var remainder = num1 % num2;
+		boolean isFinalGCD = false;
+		while (!isFinalGCD) {
+			if (num1 % num2 != 0) {
+				remainder = num1 % num2;
+				num1 = num2;
+				num2 = remainder;
+			} else {
+				remainder = num2;
+				isFinalGCD = true;
+			}
+		}
+		return remainder;
+	}
+
 	public static void isCorrect(String correctAnswer, String playerAnswer, int currentRound, int gameRounds) {
 		var isCorrect = playerAnswer.equals(correctAnswer);
 		if (isCorrect && currentRound == gameRounds - 1) {
