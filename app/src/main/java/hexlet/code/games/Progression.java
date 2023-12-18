@@ -20,7 +20,7 @@ public class Progression {
 	public static void progressionLines(int loopCount) {
 		StringBuilder questionsLine = new StringBuilder();
 		StringBuilder answersLine = new StringBuilder();
-		int lineLength = 10;
+		int lineLength = Utils.randomNumber(6, 10);
 		int savedNumber = Utils.randomNumber(1, 50);
 		int lineProgression = Utils.randomNumber(2, 5);
 		int replaceIndex = Utils.randomNumber(0, lineLength - 1);
@@ -31,17 +31,17 @@ public class Progression {
 				savedNumber = savedNumber + lineProgression;
 				answersLine.append(savedNumber);
 				if (i != lineLength - 1) {
-					questionsLine.append(", ");
+					questionsLine.append(" ");
 				}
 			} else if (i == 0) {
 				questionsLine.append(savedNumber);
-				questionsLine.append(", ");
+				questionsLine.append(" ");
 			} else if (i == lineLength - 1) {
 				questionsLine.append(savedNumber + lineProgression);
 			} else {
 				questionsLine.append(savedNumber + lineProgression);
 				savedNumber = savedNumber + lineProgression;
-				questionsLine.append(", ");
+				questionsLine.append(" ");
 			}
 		}
 
