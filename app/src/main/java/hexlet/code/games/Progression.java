@@ -20,7 +20,7 @@ public class Progression {
 	public static void progressionLines(int loopCount) {
 		StringBuilder questionsLine = new StringBuilder();
 		StringBuilder answersLine = new StringBuilder();
-		int lineLength = Utils.randomNumber(5, 10);
+		int lineLength = Utils.randomNumber(6, 10);
 		int savedNumber = Utils.randomNumber(1, 50);
 		int lineProgression = Utils.randomNumber(2, 5);
 		int replaceIndex = Utils.randomNumber(0, lineLength - 1);
