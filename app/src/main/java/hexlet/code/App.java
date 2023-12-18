@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Progression;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
@@ -9,12 +13,16 @@ public class App {
         String[] choices = {"1 - Greet", "2 - Even", "3 - Calc", "4 - GCD", "5 - Progression", "6 - Prime", "0 - Exit"};
 
         for (var choice : choices) {
-                System.out.println(choice);
+            System.out.println(choice);
         }
 
         System.out.print("Your choice: ");
         Scanner scanner = new Scanner(System.in);
-        menu(scanner.nextInt());
+        if (scanner.hasNextInt()) {
+            menu(scanner.nextInt());
+        } else {
+            menu(0);
+        }
     }
 
     public static void menu(int choice) {
@@ -38,6 +46,8 @@ public class App {
                 break;
             case 6:
                 Prime.start();
+            default:
+                break;
         }
     }
 }
