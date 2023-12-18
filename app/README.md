@@ -1,8 +1,7 @@
 java-package
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/alexhmbg/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/alexhmbg/java-project-61/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/be8ad82c04cab496efcd/maintainability)](https://codeclimate.com/github/alexhmbg/java-project-61/maintainability)
-[![GitHub Actions](https://api.codeclimate.com/v1/badges/be8ad82c04cab496efcd/test_coverage)](https://github.com/OWNER/REPOSITORY/actions/workflows/WORKFLOW-FILE/badge.svg)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/be8ad82c04cab496efcd/test_coverage)](https://codeclimate.com/github/alexhmbg/java-project-61/test_coverage)
 
 First record (one game): https://asciinema.org/a/sQDHrZnoCt52WBcFkX7Q56eTl
 Second record (two games): https://asciinema.org/a/1QcyB4HdmjrbcWlH8PD3t4bcW
