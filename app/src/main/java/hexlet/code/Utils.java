@@ -1,8 +1,13 @@
 package hexlet.code;
 
 public class Utils {
-    private static int defaultMinRange = 1;
-    private static int defaultMaxRange = 100;
+    private static int defaultMinRange;
+    private static int defaultMaxRange;
+    Utils() {
+        this.defaultMinRange = 1;
+        this.defaultMaxRange = 100;
+    }
+
     public static int randomNumber() {
         return defaultMinRange + (int) (Math.random() * ((defaultMaxRange - defaultMinRange) + 1));
     }
