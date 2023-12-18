@@ -4,10 +4,10 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
-    public static String description = "What is the result of the expression?";
-    public static int rounds = Engine.gameRounds;
-    public static String[] questions = new String[rounds];
-    public static String[] answers = new String[rounds];
+    private static String description = "What is the result of the expression?";
+    private static int rounds = Engine.gameRounds;
+    private static String[] questions = new String[rounds];
+    private static String[] answers = new String[rounds];
 
     public static void start() {
         for (var i = 0; i < rounds; i++) {
