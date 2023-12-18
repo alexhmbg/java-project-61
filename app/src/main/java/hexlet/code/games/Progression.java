@@ -17,14 +17,17 @@ public class Progression {
     }
 
     public static String questionLine(int index) {
-        int lineLength = Utils.randomNumber(6, 10);
-        int lineProgression = Utils.randomNumber(2, 5);
+        int lineLength = 10;
+        int minDifference = 2;
+        int maxDifference = 5;
+        int numProgression = Utils.randomNumber(minDifference, maxDifference);
         int randomIndex = Utils.randomNumber(0, lineLength - 1);
+
         int[] numbersLine = new int[lineLength];
-        numbersLine[0] = Utils.randomNumber(1, 50);
+        numbersLine[0] = Utils.randomNumber();
 
         for (var i = 1; i < lineLength; i++) {
-            numbersLine[i] = numbersLine[i - 1] + lineProgression;
+            numbersLine[i] = numbersLine[i - 1] + numProgression;
         }
 
         answers[index] = String.valueOf(numbersLine[randomIndex]);

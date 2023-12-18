@@ -19,32 +19,32 @@ public class App {
         System.out.print("Your choice: ");
         Scanner scanner = new Scanner(System.in);
         if (scanner.hasNextInt()) {
-            menu(scanner.nextInt());
+            menu(String.valueOf(scanner.nextInt()));
         } else {
-            menu(0);
+            menu(String.valueOf(0));
         }
     }
 
-    public static void menu(int choice) {
+    public static void menu(String choice) {
         switch (choice) {
-            case 0:
+            case "0":
                 break;
-            case 1:
+            case "1":
                 Greet.start();
                 break;
-            case 2:
+            case "2":
                 Even.start();
                 break;
-            case 3:
+            case "3":
                 Calc.start();
                 break;
-            case 4:
+            case "4":
                 GCD.start();
                 break;
-            case 5:
+            case "5":
                 Progression.start();
                 break;
-            case 6:
+            case "6":
                 Prime.start();
             default:
                 break;

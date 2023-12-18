@@ -11,9 +11,7 @@ public class Prime {
 
     public static void start() {
         for (var i = 0; i < rounds; i++) {
-            int min = 1;
-            int max = 100;
-            int randomNum = Utils.randomNumber(min, max);
+            int randomNum = Utils.randomNumber();
             questions[i] = String.valueOf(randomNum);
             answers[i] = isPrime(randomNum);
         }

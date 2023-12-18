@@ -11,10 +11,8 @@ public class GCD {
 
     public static void start() {
         for (var i = 0; i < rounds; i++) {
-            int min = 1;
-            int max = 100;
-            int randomNum1 = Utils.randomNumber(min, max);
-            int randomNum2 = Utils.randomNumber(min, max);
+            int randomNum1 = Utils.randomNumber();
+            int randomNum2 = Utils.randomNumber();
             questions[i] = randomNum1 + " " + randomNum2;
             answers[i] = String.valueOf(findGCD(randomNum1, randomNum2));
         }
