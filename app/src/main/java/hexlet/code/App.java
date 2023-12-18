@@ -27,8 +27,6 @@ public class App {
 
     public static void menu(String choice) {
         switch (choice) {
-            case "0":
-                break;
             case "1":
                 Greet.start();
                 break;

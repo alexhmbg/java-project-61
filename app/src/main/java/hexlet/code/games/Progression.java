@@ -8,9 +8,9 @@ public class Progression {
     private static int rounds = Engine.getRounds();
     private static String[] questions = new String[rounds];
     private static String[] answers = new String[rounds];
-    private static int lineLength = 10;
-    private static int minDifference = 2;
-    private static int maxDifference = 5;
+    private static final int lineLength = 10;
+    private static final int minDifference = 2;
+    private static final int maxDifference = 5;
     public static void start() {
         for (var i = 0; i < rounds; i++) {
             questions[i] = progressionLine(i);
