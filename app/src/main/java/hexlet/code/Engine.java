@@ -17,14 +17,14 @@ public class Engine {
 
             if (isCorrect && i == gameRounds - 1) {
                 System.out.println("Correct!");
-                System.out.println("Congratulations, " + Greet.playerName + "!");
+                System.out.println("Congratulations, " + Greet.getName() + "!");
             } else if (isCorrect) {
                 System.out.println("Correct!");
             } else {
                 String wrongPlayerAnswer = "'" + playerAnswer + "' is wrong answer ;(. ";
                 String correctGameAnswer = "Correct answer was '" + correctAnswer + "'.";
                 System.out.println(wrongPlayerAnswer + correctGameAnswer);
-                System.out.println("Let's try again, " + Greet.playerName + "!");
+                System.out.println("Let's try again, " + Greet.getName() + "!");
                 break;
             }
         }

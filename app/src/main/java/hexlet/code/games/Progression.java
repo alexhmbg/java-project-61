@@ -8,18 +8,18 @@ public class Progression {
     private static int rounds = Engine.getRounds();
     private static String[] questions = new String[rounds];
     private static String[] answers = new String[rounds];
+    private static int lineLength = 10;
+    private static int minDifference = 2;
+    private static int maxDifference = 5;
     public static void start() {
         for (var i = 0; i < rounds; i++) {
-            questions[i] = questionLine(i);
+            questions[i] = progressionLine(i);
         }
 
         Engine.runGame(questions, answers, description);
     }
 
-    public static String questionLine(int index) {
-        int lineLength = 10;
-        int minDifference = 2;
-        int maxDifference = 5;
+    public static String progressionLine(int index) {
         int numProgression = Utils.randomNumber(minDifference, maxDifference);
         int randomIndex = Utils.randomNumber(0, lineLength - 1);
 
@@ -31,10 +31,10 @@ public class Progression {
         }
 
         answers[index] = String.valueOf(numbersLine[randomIndex]);
-        return prepareQuestionLine(numbersLine, randomIndex);
+        return switchRandomNum(numbersLine, randomIndex);
     }
 
-    public static String prepareQuestionLine(int[] numbers, int randomIndex) {
+    public static String switchRandomNum(int[] numbers, int randomIndex) {
         String[] questionLine = new String[numbers.length];
 
         for (var i = 0; i < numbers.length; i++) {
