@@ -5,13 +5,14 @@ import hexlet.code.Utils;
 
 public class Prime {
     private static String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static int rounds = Engine.gameRounds;
-    private static String[] questions = new String[rounds];
-    private static String[] answers = new String[rounds];
+    private static String[] questions = new String[Engine.gameRounds];
+    private static String[] answers = new String[Engine.gameRounds];
 
     public static void start() {
-        for (var i = 0; i < rounds; i++) {
-            int randomNum = Utils.randomNumber(1, 100);
+        for (var i = 0; i < Engine.gameRounds; i++) {
+            int min = 1;
+            int max = 100;
+            int randomNum = Utils.randomNumber(min, max);
             questions[i] = String.valueOf(randomNum);
             answers[i] = isPrime(randomNum);
         }

@@ -11,7 +11,9 @@ public class Even {
 
     public static void start() {
         for (var i = 0; i < rounds; i++) {
-            int randomNum = Utils.randomNumber(1, 100);
+            int min = 1;
+            int max = 100;
+            int randomNum = Utils.randomNumber(min, max);
             questions[i] = String.valueOf(randomNum);
             answers[i] = randomNum % 2 == 0 ? "yes" : "no";
         }

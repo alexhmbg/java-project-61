@@ -11,8 +11,10 @@ public class Calc {
 
     public static void start() {
         for (var i = 0; i < rounds; i++) {
-            int randomNum1 = Utils.randomNumber(1, 100);
-            int randomNum2 = Utils.randomNumber(1, 100);
+            int min = 1;
+            int max = 100;
+            int randomNum1 = Utils.randomNumber(min, max);
+            int randomNum2 = Utils.randomNumber(min, max);
             char randomOperator = randomOperator();
             questions[i] = randomNum1 + " " + randomOperator + " " + randomNum2;
             answers[i] = String.valueOf(operation(randomNum1, randomNum2, randomOperator));
