@@ -8,9 +8,9 @@ public class Progression {
     private static int rounds = Engine.getRounds();
     private static String[] questions = new String[rounds];
     private static String[] answers = new String[rounds];
-    private static final int lineLength = 10;
-    private static final int minDifference = 2;
-    private static final int maxDifference = 5;
+    private static final int LENGTH_OF_LINE = 10;
+    private static final int MIN_PROGRESSION_RANGE = 2;
+    private static final int MAX_PROGRESSION_RANGE = 5;
     public static void start() {
         for (var i = 0; i < rounds; i++) {
             questions[i] = progressionLine(i);
@@ -20,14 +20,14 @@ public class Progression {
     }
 
     public static String progressionLine(int index) {
-        int numProgression = Utils.randomNumber(minDifference, maxDifference);
-        int randomIndex = Utils.randomNumber(0, lineLength - 1);
+        int lineProgression = Utils.randomNumber(MIN_PROGRESSION_RANGE, MAX_PROGRESSION_RANGE);
+        int randomIndex = Utils.randomNumber(0, LENGTH_OF_LINE - 1);
 
-        int[] numbersLine = new int[lineLength];
+        int[] numbersLine = new int[LENGTH_OF_LINE];
         numbersLine[0] = Utils.randomNumber();
 
-        for (var i = 1; i < lineLength; i++) {
-            numbersLine[i] = numbersLine[i - 1] + numProgression;
+        for (var i = 1; i < LENGTH_OF_LINE; i++) {
+            numbersLine[i] = numbersLine[i - 1] + lineProgression;
         }
 
         answers[index] = String.valueOf(numbersLine[randomIndex]);

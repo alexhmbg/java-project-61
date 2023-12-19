@@ -3,11 +3,11 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int gameRounds = 3;
+    private static final int ROUNDS_OF_GAMES = 3;
     public static void runGame(String[] questions, String[] answers, String description) {
         Greet.start();
         System.out.println(description);
-        for (var i = 0; i < gameRounds; i++) {
+        for (var i = 0; i < ROUNDS_OF_GAMES; i++) {
             System.out.println("Question: " + questions[i]);
             System.out.print("Your answer: ");
             Scanner answerScanner = new Scanner(System.in);
@@ -15,7 +15,7 @@ public class Engine {
             String correctAnswer = answers[i];
             boolean isCorrect = playerAnswer.equals(answers[i]);
 
-            if (isCorrect && i == gameRounds - 1) {
+            if (isCorrect && i == ROUNDS_OF_GAMES - 1) {
                 System.out.println("Correct!");
                 System.out.println("Congratulations, " + Greet.getName() + "!");
             } else if (isCorrect) {
@@ -30,6 +30,6 @@ public class Engine {
         }
     }
     public static int getRounds() {
-        return gameRounds;
+        return ROUNDS_OF_GAMES;
     }
 }
