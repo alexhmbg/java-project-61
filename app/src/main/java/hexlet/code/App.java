@@ -23,6 +23,7 @@ public class App {
         } else {
             menu(String.valueOf(0));
         }
+        System.out.print("\n");
     }
 
     public static void menu(String choice) {
