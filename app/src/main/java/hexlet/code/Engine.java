@@ -34,7 +34,7 @@ public class Engine {
             }
         }
 
-        if (score == 3) {
+        if (score == GAME_ROUNDS) {
             System.out.println("Congratulations, " + playerName + "!");
         }
     }
