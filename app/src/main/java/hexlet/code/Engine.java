@@ -3,11 +3,18 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int ROUNDS_OF_GAMES = 3;
+    public static final int GAME_ROUNDS = 3;
+
     public static void runGame(String[] questions, String[] answers, String description) {
-        Greet.start();
+        System.out.println("\nWelcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        Scanner scanner = new Scanner(System.in);
+        var playerName = scanner.nextLine();
+        System.out.println("Hello, " + playerName + "!");
         System.out.println(description);
-        for (var i = 0; i < ROUNDS_OF_GAMES; i++) {
+
+        var score = 0;
+        for (var i = 0; i < GAME_ROUNDS; i++) {
             System.out.println("Question: " + questions[i]);
             System.out.print("Your answer: ");
             Scanner answerScanner = new Scanner(System.in);
@@ -15,21 +22,20 @@ public class Engine {
             String correctAnswer = answers[i];
             boolean isCorrect = playerAnswer.equals(answers[i]);
 
-            if (isCorrect && i == ROUNDS_OF_GAMES - 1) {
+            if (isCorrect) {
                 System.out.println("Correct!");
-                System.out.println("Congratulations, " + Greet.getName() + "!");
-            } else if (isCorrect) {
-                System.out.println("Correct!");
+                score++;
             } else {
                 String wrongPlayerAnswer = "'" + playerAnswer + "' is wrong answer ;(. ";
                 String correctGameAnswer = "Correct answer was '" + correctAnswer + "'.";
                 System.out.println(wrongPlayerAnswer + correctGameAnswer);
-                System.out.println("Let's try again, " + Greet.getName() + "!");
+                System.out.println("Let's try again, " + playerName + "!");
                 break;
             }
         }
-    }
-    public static int getRounds() {
-        return ROUNDS_OF_GAMES;
+
+        if (score == 3) {
+            System.out.println("Congratulations, " + playerName + "!");
+        }
     }
 }
