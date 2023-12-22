@@ -13,7 +13,6 @@ public class Engine {
         System.out.println("Hello, " + playerName + "!");
         System.out.println(description);
 
-        var score = 0;
         for (var i = 0; i < GAME_ROUNDS; i++) {
             System.out.println("Question: " + questions[i]);
             System.out.print("Your answer: ");
@@ -24,18 +23,16 @@ public class Engine {
 
             if (isCorrect) {
                 System.out.println("Correct!");
-                score++;
             } else {
                 String wrongPlayerAnswer = "'" + playerAnswer + "' is wrong answer ;(. ";
                 String correctGameAnswer = "Correct answer was '" + correctAnswer + "'.";
                 System.out.println(wrongPlayerAnswer + correctGameAnswer);
                 System.out.println("Let's try again, " + playerName + "!");
-                break;
+                return;
             }
+
         }
 
-        if (score == GAME_ROUNDS) {
-            System.out.println("Congratulations, " + playerName + "!");
-        }
+        System.out.println("Congratulations, " + playerName + "!");
     }
 }
