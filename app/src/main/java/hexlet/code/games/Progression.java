@@ -3,51 +3,50 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import java.util.Arrays;
+
 public class Progression {
-    private static String description = "What number is missing in the progression?";
-    private static int rounds = Engine.GAME_ROUNDS;
-    private static String[] questions = new String[rounds];
-    private static String[] answers = new String[rounds];
+    private static final int ROUNDS = Engine.GAME_ROUNDS;
+    private static final String DESCRIPTION = "What number is missing in the progression?";
+    private static final String[][] QA = new String[ROUNDS][2];
     private static final int LENGTH_OF_LINE = 10;
     private static final int MIN_PROGRESSION_STEP = 2;
     private static final int MAX_PROGRESSION_STEP = 5;
-    private static int[] numbersLine = new int[LENGTH_OF_LINE];
-    private static int savedProgressionNum;
 
     public static void start() {
-        for (var i = 0; i < rounds; i++) {
-            questions[i] = createProgressionLine();
-            answers[i] = String.valueOf(savedProgressionNum);
+        for (var i = 0; i < ROUNDS; i++) {
+            int[] progression = makeProgression();
+            int randomIndex = Utils.randomNumber(0, LENGTH_OF_LINE - 1);
+            QA[i][0] = switchNum(progression, randomIndex);
+            QA[i][1] = takeNum(progression, randomIndex);
         }
-
-        Engine.runGame(questions, answers, description);
+        Engine.runGame(QA, DESCRIPTION);
     }
 
-    public static String createProgressionLine() {
+    public static int[] makeProgression() {
+        int[] progression = new int[LENGTH_OF_LINE];
+        int firstNumber = Utils.randomNumber();
         int progressionStep = Utils.randomNumber(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
-        int randomIndex = Utils.randomNumber(0, LENGTH_OF_LINE - 1);
-        makeProgression(progressionStep, LENGTH_OF_LINE);
-        return switchRandomNum(numbersLine, randomIndex);
+        for (var i = 0; i < progression.length; i++) progression[i] = firstNumber + (i * progressionStep);
+
+        return progression;
     }
 
-    public static void makeProgression(int step, int length) {
-        var firstNumber = Utils.randomNumber();
-        for (var i = 0; i < length; i++) {
-            numbersLine[i] = firstNumber + (i * step);
-        }
-    }
-
-    public static String switchRandomNum(int[] numbers, int randomIndex) {
-        savedProgressionNum = numbers[randomIndex];
-        String[] questionLine = new String[numbers.length];
-        for (var i = 0; i < numbers.length; i++) {
-            if (i == randomIndex) {
+    public static String switchNum(int[] progression, int index) {
+        String[] questionLine = new String[progression.length];
+        for (var i = 0; i < progression.length; i++) {
+            if (i == index) {
                 questionLine[i] = "..";
             } else {
-                questionLine[i] = String.valueOf(numbers[i]);
+                questionLine[i] = String.valueOf(progression[i]);
             }
         }
 
         return String.join(" ", questionLine);
+    }
+
+    public static String takeNum(int[] progression, int index) {
+        int num = progression[index];
+        return String.valueOf(num);
     }
 }
