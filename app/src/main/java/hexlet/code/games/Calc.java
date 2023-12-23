@@ -4,46 +4,29 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
-    private static String description = "What is the result of the expression?";
-    private static int rounds = Engine.GAME_ROUNDS;
-    private static String[] questions = new String[rounds];
-    private static String[] answers = new String[rounds];
-    private static char[] operators = {'-', '+', '*'};
-    private static int operation;
+    private static final int ROUNDS = Engine.GAME_ROUNDS;
+    private static final String DESCRIPTION = "What is the result of the expression?";
+    private static final String[][] QA = new String[ROUNDS][2];
+    private static final char[] OPERATORS = {'-', '+', '*'};
 
     public static void start() {
-        for (var i = 0; i < rounds; i++) {
-            questions[i] = createQuestionString();
-            answers[i] = String.valueOf(operation);
+        for (var i = 0; i < ROUNDS; i++) {
+            int randomNum1 = Utils.randomNumber();
+            int randomNum2 = Utils.randomNumber();
+            char randomOperator = OPERATORS[Utils.randomNumber(0, OPERATORS.length - 1)];
+            QA[i][0] = randomNum1 + " " + randomOperator + " " + randomNum2;
+            QA[i][1] = String.valueOf(calculate(randomNum1, randomNum2, randomOperator));
         }
 
-        Engine.runGame(questions, answers, description);
+        Engine.runGame(QA, DESCRIPTION);
     }
 
-    public static String createQuestionString() {
-        int randomNum1 = Utils.randomNumber();
-        int randomNum2 = Utils.randomNumber();
-        char randomOperator = operators[Utils.randomNumber(0, operators.length - 1)];
-        calculate(randomNum1, randomNum2, randomOperator);
-
-        String finalStr = randomNum1 + " " + randomOperator + " " + randomNum2;
-        return finalStr;
-    }
-
-    public static void calculate(int num1, int num2, char operator) {
-        switch (operator) {
-            case '-':
-                operation = num1 - num2;
-                break;
-            case '+':
-                operation = num1 + num2;
-                break;
-            case '*':
-                operation = num1 * num2;
-                break;
-            default:
-                System.out.println("There's no logic behind '" + operator + "' operator");
-                break;
-        }
+    public static int calculate(int num1, int num2, char operator) {
+        return switch (operator) {
+            case '-' -> num1 - num2;
+            case '+' -> num1 + num2;
+            case '*' -> num1 * num2;
+            default -> throw new RuntimeException("There's no logic behind '" + operator + "' operator");
+        };
     }
 }
