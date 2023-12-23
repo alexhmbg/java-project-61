@@ -4,20 +4,20 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class GCD {
-    private static String description = "Find the greatest common divisor of given numbers.";
-    private static int rounds = Engine.GAME_ROUNDS;
-    private static String[] questions = new String[rounds];
-    private static String[] answers = new String[rounds];
+    private static final int ROUNDS = Engine.GAME_ROUNDS;
+    private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
+    private static final String[][] QA = new String[ROUNDS][2];
+
 
     public static void start() {
-        for (var i = 0; i < rounds; i++) {
+        for (var i = 0; i < ROUNDS; i++) {
             int randomNum1 = Utils.randomNumber();
             int randomNum2 = Utils.randomNumber();
-            questions[i] = randomNum1 + " " + randomNum2;
-            answers[i] = String.valueOf(findGCD(randomNum1, randomNum2));
+            QA[i][0] = randomNum1 + " " + randomNum2;
+            QA[i][1] = String.valueOf(findGCD(randomNum1, randomNum2));
         }
 
-        Engine.runGame(questions, answers, description);
+        Engine.runGame(QA, DESCRIPTION);
     }
 
     public static int findGCD(int num1, int num2) {
