@@ -3,8 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Arrays;
-
 public class Progression {
     private static final int ROUNDS = Engine.GAME_ROUNDS;
     private static final String DESCRIPTION = "What number is missing in the progression?";
@@ -18,16 +16,18 @@ public class Progression {
             int[] progression = makeProgression();
             int randomIndex = Utils.randomNumber(0, LENGTH_OF_LINE - 1);
             QA[i][0] = switchNum(progression, randomIndex);
-            QA[i][1] = takeNum(progression, randomIndex);
+            QA[i][1] = String.valueOf(progression[randomIndex]);
         }
         Engine.runGame(QA, DESCRIPTION);
     }
 
     public static int[] makeProgression() {
         int[] progression = new int[LENGTH_OF_LINE];
-        int firstNumber = Utils.randomNumber();
+        int firstNum = Utils.randomNumber();
         int progressionStep = Utils.randomNumber(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
-        for (var i = 0; i < progression.length; i++) progression[i] = firstNumber + (i * progressionStep);
+        for (var i = 0; i < progression.length; i++) {
+            progression[i] = firstNum + (i * progressionStep);
+        }
 
         return progression;
     }
@@ -43,10 +43,5 @@ public class Progression {
         }
 
         return String.join(" ", questionLine);
-    }
-
-    public static String takeNum(int[] progression, int index) {
-        int num = progression[index];
-        return String.valueOf(num);
     }
 }
