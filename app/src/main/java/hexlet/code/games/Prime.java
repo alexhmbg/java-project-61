@@ -4,19 +4,18 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Prime {
-    private static int rounds = Engine.GAME_ROUNDS;
-    private static String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static String[] questions = new String[rounds];
-    private static String[] answers = new String[rounds];
+    private static final int ROUNDS = Engine.GAME_ROUNDS;
+    private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final String[][] QA = new String[ROUNDS][2];
 
     public static void start() {
-        for (var i = 0; i < rounds; i++) {
+        for (var i = 0; i < ROUNDS; i++) {
             int randomNum = Utils.randomNumber();
-            questions[i] = String.valueOf(randomNum);
-            answers[i] = isPrime(randomNum) ? "yes" : "no";
+            QA[i][0] = String.valueOf(randomNum);
+            QA[i][1] = isPrime(randomNum) ? "yes" : "no";
         }
 
-        Engine.runGame(questions, answers, description);
+        Engine.runGame(QA, DESCRIPTION);
     }
 
     public static boolean isPrime(int num) {
