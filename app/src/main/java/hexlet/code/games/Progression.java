@@ -13,20 +13,20 @@ public class Progression {
 
     public static void start() {
         for (var i = 0; i < ROUNDS; i++) {
-            int[] progression = makeProgression();
+            int firstNum = Utils.randomNumber();
             int randomIndex = Utils.randomNumber(0, LENGTH_OF_LINE - 1);
+            int progressionStep = Utils.randomNumber(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
+            int[] progression = makeProgression(firstNum, progressionStep, LENGTH_OF_LINE);
             QA[i][0] = switchNum(progression, randomIndex);
             QA[i][1] = String.valueOf(progression[randomIndex]);
         }
         Engine.runGame(QA, DESCRIPTION);
     }
 
-    public static int[] makeProgression() {
-        int[] progression = new int[LENGTH_OF_LINE];
-        int firstNum = Utils.randomNumber();
-        int progressionStep = Utils.randomNumber(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
-        for (var i = 0; i < progression.length; i++) {
-            progression[i] = firstNum + (i * progressionStep);
+    public static int[] makeProgression(int num, int step, int length) {
+        int[] progression = new int[length];
+        for (var i = 0; i < length; i++) {
+            progression[i] = num + (i * step);
         }
 
         return progression;
